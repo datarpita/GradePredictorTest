@@ -1,0 +1,27 @@
+{
+  "Results": {
+    "output1": {
+      "type": "DataTable",
+      "value": {
+        "ColumnNames": [
+          "Maths_ScoreLabelMean",
+          "Physics_ScoreLabelMean"
+        ],
+        "ColumnTypes": [
+          "Numeric",
+          "Numeric"
+        ],
+        "Values": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      }
+    }
+  }
+}

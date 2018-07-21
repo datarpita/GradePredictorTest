@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Grade Predictor</title>
+<!-- plugins:css -->
+<link rel="stylesheet"
+	href="../res/styles/node_modules/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet"
+	href="../res/styles/node_modules/simple-line-icons/css/simple-line-icons.css">
+<!-- <link rel="stylesheet"
+	href="../res/bootstrap/dist/css/bootstrap.min.css"> -->
+<!-- endinject -->
+<!-- plugin css for this page -->
+<!-- End plugin css for this page -->
+<!-- inject:css -->
+<link rel="stylesheet" href="../res/styles/styles.css">
+<!-- endinject -->
+<!-- Latest compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<link rel="shortcut icon" href="images/favicon.png" />
+
+</head>
+
+<body>
+<!-- Modal -->
+		<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Predicted score for final exam is</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <label>Mathematics: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><label for="score_maths"></label></b>
+		        <br>
+				<label>Physics: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><label for="score_physics"></label></b>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div>
+	<!-- Modal ends -->
+	<div class="container-scroller">
+		<!-- partial:../../partials/_navbar.html -->
+		<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+			<div
+				class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+				<a class="navbar-brand brand-logo" href="#">Grade Predictor</a> <a
+					class="navbar-brand brand-logo-mini" href="#">GP</a>
+			</div>
+			<div class="navbar-menu-wrapper d-flex align-items-center">
+				<ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+					<li class="nav-item active"><a href="#" class="nav-link"><i
+							class="mdi mdi-image-filter"></i>Dashboard</a></li>
+				</ul>
+				<ul class="navbar-nav navbar-nav-right">
+					<li class="nav-item dropdown"><a
+						class="nav-link count-indicator dropdown-toggle"
+						id="notificationDropdown" href="#" data-toggle="dropdown"> <i
+							class="mdi mdi-bell-ring"></i> <span class="count">4</span>
+					</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link count-indicator dropdown-toggle"
+						id="messageDropdown" href="#" data-toggle="dropdown"
+						aria-expanded="false"> <i class="mdi mdi-email-variant"></i> <span
+							class="count">7</span>
+					</a></li>
+					<li class="nav-item d-none d-lg-block"><a class="nav-link"
+						href="#"> <img class="img-xs rounded-circle"
+							src="https://wowmontessori.org/wp-content/uploads/2014/07/female-placeholder.jpg"
+							alt="">
+					</a></li>
+				</ul>
+				<button
+					class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+					type="button" data-toggle="offcanvas">
+					<span class="icon-menu"></span>
+				</button>
+			</div>
+		</nav>
+		<!-- partial -->
+		<div class="container-fluid page-body-wrapper">
+			<!-- partial:../../partials/_sidebar.html -->
+			<nav class="sidebar sidebar-offcanvas" id="sidebar">
+				<ul class="nav" id="myTab" role="tablist">
+					<li
+						style="background: linear-gradient(88deg, #318be3, #04befe); height: 10px">&nbsp;</li>
+					<li class="nav-item nav-profile">
+						<div class="nav-link">
+							<div class="profile-image">
+								<img
+									src="https://wowmontessori.org/wp-content/uploads/2014/07/female-placeholder.jpg"
+									alt="image" /> <span class="online-status online"></span>
+							</div>
+							<div class="profile-name">
+								<p class="name">Anne V.Welsh</p>
+								<p class="designation">Teacher</p>
+								<div class="badge badge-teal mx-auto mt-3">Online</div>
+							</div>
+						</div>
+					</li>
+					<li
+						style="background: linear-gradient(88deg, #318be3, #04befe); height: 10px">&nbsp;</li>
+					<li class="nav-item "><a id="singleNavItem"
+						class="nav-link active" id="home-tab" data-toggle="tab"
+						href="#tabs-1" role="tab" aria-controls="home"
+						aria-selected="true"><img class="menu-icon"
+							src="../res/images/menu_icons/04.png" alt="menu icon"><span
+							class="menu-title">Single subject</span></a></li>
+					<li class="nav-item"><a id="multipleNavItem" class="nav-link"
+						data-toggle="tab" role="tab" aria-controls="profile"
+						aria-selected="false" href="#tabs-2" href="#tabs-2"><img
+							class="menu-icon" src="../res/images/menu_icons/04.png"
+							alt="menu icon"><span class="menu-title">Multiple
+								subjects</span></a></li>
+				</ul>
+			</nav>
+			<!-- partial -->
+			<div class="main-panel">
+				<div class="content-wrapper">
+					<div class="row">
+
+						<div class="tab-content col-sm-12 d-flex justify-content-center"
+							id="myTabContent">
+							<div class="col-md-10  tab-pane fade show active" id="tabs-1"
+								role="tabpanel" aria-labelledby="home-tab">
+								<div class="row flex-grow">
+									<div class="col-12">
+										<ul class="list-group">
+											<li class="list-group-item list-group-item-info">
+												Predict student score for Mathematics</li>
+										</ul>
+									</div>
+								</div>
+								<div class="row flex-grow">
+									<div class="col-12">
+										<form id="single-form" accept-charset="utf-8"
+											autocomplete="off" class="form-horizontal">
+											<div class="card flex-row align-items-center">
+												<div class="card-body col-md-6 ">
+													<h4 class="card-title">Enter details below</h4>
+													<div class="form-group col-sm-12 ">
+														<label for="s_age">Age (in
+															years)</label> <input type="text" maxlength="2" class="form-control"
+															name="s_age" id="s_age" placeholder="Age"
+															tabindex="1" value="" />
+														<div class="help-block" id="error"></div>
+													</div>
+													<div class="form-group col-sm-12">
+														<label for="s_famrel">Quality of family relationship</label> <select
+															id="s_famrel" class="form-control" tabindex="2">
+															<option value="" disabled selected>Choose...</option>
+															<option value="1">Very bad</option>
+															<option value="2">Bad</option>
+															<option value="3">Moderate</option>
+															<option value="4">Good</option>
+															<option value="5">Excellent</option>
+														</select>
+													</div>
+													<div class="form-group col-sm-12 ">
+														<label for="s_absences">No. of absences in school for a year</label> 
+														<input type="text" maxlength="2" class="form-control"
+															name="s_absences" id="s_absences" placeholder="Absences"
+															tabindex="3" value="" />
+														<div class="help-block" id="error"></div>
+													</div>
+													<div class="form-group col-sm-12 ">
+														<label for="s_grade1">Score of class test 1 (0 - 20)</label>
+														<input type="text" maxlength="2" class="form-control"
+															name="s_grade1" id="s_grade1" placeholder="Grade 1"
+															tabindex="4" value="" />
+														<div class="help-block" id="error"></div>
+													</div>
+													<div class="form-group col-sm-12 ">
+														<label for="s_grade2">Score of class test 2 (0 - 20)</label>
+														<input type="text" maxlength="2" class="form-control"
+															name="s_grade2" id="s_grade2" placeholder="Grade 2"
+															tabindex="5" value="" />
+														<div class="help-block" id="error"></div>
+													</div>
+												</div>
+												<div id="resultddiv" class="card-body col-md-6 makeHidden">
+													<div class="alert alert-warning" role="alert">
+														<label>Predicted result for final exam is </label>
+														<div class="form-group col-sm-12 ">
+												          <label>Probability of passing:</label> 
+												          <label for="passpercentage"></label>
+												        </div>  
+												        <div class="form-group col-sm-12 ">
+												          <label>Result:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+												          <label class="badge" for="result"></label>
+												        </div>
+													</div>
+												</div>
+											</div>
+											<div class="card text-center">
+												<div class="card-body col-md-12">
+													<div class="form-group col-sm-12  ">
+														<button type="submit" id="predictbttn"
+															class="btn btn-primary">Predict</button>
+														<button type="button" id="resetbttn"
+															class="btn btn-primary">Reset</button>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+
+							</div>
+							<!-- Multiple subjects tab starts -->
+							<div class="col-md-10  tab-pane fade" id="tabs-2" role="tabpanel"
+								aria-labelledby="profile-tab"">
+								<div class="row flex-grow">
+									<div class="col-12">
+										<ul class="list-group">
+											<li class="list-group-item list-group-item-info">
+												Predict student score for Mathematics & Physics</li>
+										</ul>
+									</div>
+								</div>
+								<div class="row flex-grow">
+									<div class="col-12">
+										<form id="multiple-form" accept-charset="utf-8"
+											autocomplete="off" class="form-horizontal">
+											<div class="card flex-row align-items-center">
+												<div class="card-body col-md-12 ">
+
+													<div class="alert alert-success" role="alert">
+														<h4 class="alert-heading">Enter personal information</h4>
+														<div class="row">
+															<div class="col-sm">
+																<div class="form-group col-sm-12 ">
+																	<label for="age">Age of student</label> <input type="text"
+																		maxlength="2" class="form-control" name="age" id="age"
+																		placeholder="Age" tabindex="1" value="" />
+																	<div class="help-block" id="error"></div>
+																</div>
+															</div>
+															<div class="col-sm">
+																<div class="form-group col-sm-12 ">
+																	<label for="absences">No. of absences in school</label>
+																	<input type="text" maxlength="2" class="form-control"
+																		name="absences" id="absences" placeholder="absences"
+																		tabindex="2" value="" />
+																	<div class="help-block" id="error"></div>
+																</div>
+															</div>
+															<div class="col-sm">
+																<div class="form-group col-sm-12 ">
+																	<label for="famrel">Quality of family relationship</label> <select
+																		id="famrel" class="form-control" tabindex="3">
+																		<option value="-1" disabled selected>Choose...</option>
+																		<option value="1">Very bad</option>
+																		<option value="2">Bad</option>
+																		<option value="3">Moderate</option>
+																		<option value="4">Good</option>
+																		<option value="5">Very good</option>
+																	</select>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-sm">
+																<div class="form-group col-sm-12 ">
+																	<label for="goout">Going out with friends</label> <select
+																		id="goout" class="form-control" tabindex="4">
+																		<option value="-1" disabled selected>Choose...</option>
+																		<option value="1">Very low</option>
+																		<option value="2">Low</option>
+																		<option value="3">Moderate</option>
+																		<option value="4">High</option>
+																		<option value="5">Very high</option>
+																	</select>
+																</div>
+															</div>
+															<div class="col-sm">
+																<div class="form-group col-sm-12 ">
+																	<label for="traveltime">Travel time</label> <select
+																		id="traveltime" class="form-control" tabindex="6">
+																		<option value="-1" disabled selected>Choose...</option>
+																		<option value="1">Less than 15 mins</option>
+																		<option value="2">15 - 30 mins</option>
+																		<option value="3">30 min to 1 hour</option>
+																		<option value="4">Greater than 10 hours</option>																		
+																	</select>
+																</div>
+															</div>
+															<div class="col-sm">
+																<div class="form-group col-sm-12 ">
+																	<label for="freetime">Free time after school</label> <select
+																		id="freetime" class="form-control" tabindex="4">
+																		<option value="-1" disabled selected>Choose...</option>
+																		<option value="1">Very low</option>
+																		<option value="2">Low</option>
+																		<option value="3">Moderate</option>
+																		<option value="4">High</option>
+																		<option value="5">Very high</option>
+																	</select>
+																</div>
+															</div>
+															<div class="col-sm">
+																<div class="form-group col-sm-12 ">
+																	<label for="dalc">Weekday Alcohol consumption</label> <select
+																		id="dalc" class="form-control" tabindex="5">
+																		<option value="-1" disabled selected>Choose...</option>
+																		<option value="1">Very low</option>
+																		<option value="2">Low</option>
+																		<option value="3">Moderate</option>
+																		<option value="4">High</option>
+																		<option value="5">Very high</option>
+																	</select>
+																</div>
+															</div>
+															
+														</div>
+													</div>
+
+													<div class="row">
+														<div class="col-6">
+															<div class="alert alert-warning" role="alert">
+																<h4 class="alert-heading">Enter Maths marks</h4>
+																<div class="form-group col-sm-12 ">
+																	<label for="gradem1">Score of class test 1 (0 -
+																		20)</label> <input type="text" class="form-control"
+																		name="gradem1" id="gradem1" placeholder="Grade 1"
+																		tabindex="7" value="" />
+																</div>
+																<div class="form-group col-sm-12 ">
+																	<label for="gradem2">Score of class test 2 (0 -
+																		20)</label> <input type="text" class="form-control"
+																		name="gradem2" id="gradem2" placeholder="Grade 2"
+																		tabindex="8" value="" />
+																</div>
+															</div>
+														</div>
+														<div class="col-6">
+															<div class="alert alert-warning" role="alert">
+																<h4 class="alert-heading">Enter Physics marks</h4>
+																<div class="form-group col-sm-12 ">
+																	<label for="gradep1">Score of class test 1 (0 -
+																		20)</label> <input type="text" class="form-control"
+																		name="gradep1" id="gradep1" placeholder="Grade 1"
+																		tabindex="9" value="" />
+																</div>
+																<div class="form-group col-sm-12 ">
+																	<label for="gradep2">Score of class test 2 (0 -
+																		20)</label> <input type="text" class="form-control"
+																		name="gradep2" id="gradep2" placeholder="Grade 2"
+																		tabindex="10" value="" />
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+											<div class="card text-center">
+												<div class="card-body col-md-12">
+													<div class="form-group col-sm-12  ">
+														<button type="submit" id="predictbttn_2" class="btn btn-primary">Predict</button>
+														<button type="button" id="resetbttn_2" class="btn btn-primary">Reset</button>
+													</div>
+												</div>
+											</div>											
+										</form>
+									</div>
+								</div>
+
+							</div>
+							<!-- Multiple tab ends -->
+							
+							
+						</div>
+						<!-- main-panel ends -->
+					</div>
+					<!-- page-body-wrapper ends -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- container-scroller -->
+	<!-- plugins:js -->
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="../res/js/jquery.min.js"></script>
+	<script src="../res/js/validation.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+	<!-- jQuery library -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	Latest compiled JavaScript
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+	<script src="../res/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../res/bootstrap/dist/js/bootstrap.js"></script>
+	
+	<!-- endinject -->
+	<!-- Custom js for this page-->
+	<!-- End custom js for this page-->
+</body>
+
+</html>

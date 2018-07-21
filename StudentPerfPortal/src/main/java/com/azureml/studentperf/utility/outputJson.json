@@ -1,0 +1,27 @@
+{
+  "Results": {
+    "output1": {
+      "type": "DataTable",
+      "value": {
+        "ColumnNames": [
+          "Scored Labels",
+          "Scored Probabilities"
+        ],
+        "ColumnTypes": [
+          "Categorical",
+          "Numeric"
+        ],
+        "Values": [
+          [
+            "fail",
+            "0"
+          ],
+          [
+            "fail",
+            "0"
+          ]
+        ]
+      }
+    }
+  }
+}
